@@ -90,7 +90,36 @@ IF(
                     {COM_fecha_JO}=BLANK()
                   ),
                   "COM_fecha_GENERAL",
-                  ""
+                  IF(
+                    AND(
+                      {COM_fecha_GENERAL},
+                      {COM_fecha_LLANOS},
+                      {COM_fecha_JO}
+                    ),
+                    IF(
+                      AND(
+                        MAX({COM_fecha_GENERAL}, {COM_fecha_LLANOS}) = {COM_fecha_GENERAL},
+                        MAX({COM_fecha_GENERAL}, {COM_fecha_JO}) = {COM_fecha_GENERAL}
+                      ),
+                      "COM_fecha_GENERAL",
+                      IF(
+                        AND(
+                          MAX({COM_fecha_GENERAL}, {COM_fecha_LLANOS}) = {COM_fecha_LLANOS},
+                          MAX({COM_fecha_LLANOS}, {COM_fecha_JO}) = {COM_fecha_LLANOS}
+                        ),
+                        "COM_fecha_LLANOS",
+                        IF(
+                          AND(
+                            MAX({COM_fecha_GENERAL}, {COM_fecha_LLANOS}) = {COM_fecha_JO},
+                            MAX({COM_fecha_JO}, {COM_fecha_GENERAL}) = {COM_fecha_JO}
+                          ),
+                          "COM_fecha_JO",
+                          ""
+                        )
+                      )
+                    ),
+                    ""
+                  )
                 )
               )
             )
