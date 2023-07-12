@@ -1,3 +1,5 @@
+# Formula for watching numerical matches thorough string lists. Cheking if the Formation of the workers is the same number of hours than the official
+
 IF(
     OR(REGEX_MATCH(FORM_CONV_ARRAY,'(?:^|\\W)20(?:$|\\W)')=1,
     REGEX_MATCH(FORM_CONV_ARRAY,'(?:^|\\W)60(?:$|\\W)')=1,
