@@ -1,0 +1,8 @@
+IF(
+    OR(REGEX_MATCH(FORM_CONV_ARRAY,'(?:^|\\W)20(?:$|\\W)')=1,
+    REGEX_MATCH(FORM_CONV_ARRAY,'(?:^|\\W)60(?:$|\\W)')=1,
+    REGEX_MATCH(FORM_CONV_ARRAY,'(?:^|\\W)50(?:$|\\W)')=1
+    ),
+    1,
+    0
+    )
