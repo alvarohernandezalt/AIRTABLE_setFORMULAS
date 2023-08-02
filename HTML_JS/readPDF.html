@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF Page Count</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+</head>
+<body>
+  <button onclick="getPDFPageCount('https://drive.google.com/file/d/1_af3g2Gr2L37cKm1rYGwcBKY5PF0aN5B/view?usp=drive_link')">Get Page Count</button>
+
+  <script>
+    async function getPDFPageCount(pdfURL) {
+      try {
+        const loadingTask = pdfjsLib.getDocument(pdfURL);
+        const pdfDocument = await loadingTask.promise;
+        const numPages = pdfDocument.numPages;
+        console.log(`Number of Pages: ${numPages}`);
+      } catch (error) {
+        console.error('Error occurred while loading PDF:', error);
+      }
+    }
+  </script>
+</body>
+</html>
