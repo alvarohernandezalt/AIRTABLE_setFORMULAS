@@ -6,7 +6,7 @@ const readline = require('readline');
 const axios = require('axios');
 
 
-const base = new Airtable({ apiKey: 'patAp928STVLsSe6b.48edd04475224f87909aa0acf28b49405e1fd210d4f9ef6c08bb5e0616904f50' }).base('apppEJj2zTr5RSOjP');
+const base = new Airtable({ apiKey: 'yourpersonalkey'}).base('aseId');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
